@@ -5,13 +5,20 @@
   <title>Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
-    // Redirect to index.html for Angular SPA with hash routing
+    // Redirect to index with hash for Angular SPA
     var l = window.location;
-    l.replace(
-      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-      '/angular-portfolio/#/' +
-      l.pathname.slice(1).split('/').slice(1).join('/')
-    );
+    var pathWithoutRepo = l.pathname.replace('/angular-portfolio', '').replace(/\/$/, '');
+    if (pathWithoutRepo && pathWithoutRepo !== '/') {
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        '/angular-portfolio/#' + pathWithoutRepo
+      );
+    } else {
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        '/angular-portfolio/'
+      );
+    }
   </script>
 </head>
 <body>

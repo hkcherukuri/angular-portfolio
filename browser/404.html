@@ -3,15 +3,13 @@
 <head>
   <meta charset="utf-8">
   <title>Portfolio</title>
-  <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
     // Redirect to index.html for Angular SPA with hash routing
     var l = window.location;
     l.replace(
       l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-      '/angular-portfolio' +
-      '/?/' +
+      '/angular-portfolio/#/' +
       l.pathname.slice(1).split('/').slice(1).join('/')
     );
   </script>
